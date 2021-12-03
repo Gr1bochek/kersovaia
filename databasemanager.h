@@ -13,12 +13,14 @@ private:
     QSqlDatabase db;
 
 public:
-    void spysat(int,int);
+    static void InsertIntoTable_people(const QVariantList&);
+
+    static void spysat(int,int);
     void deleteData(int);
     QSqlDatabase getDB();
     static void InsertIntoTable(const QVariantList&);
     void ConnectToDB();
-    void CreateTable();
+    void CreateTable(const QString&);
     DataBaseManager();
 };
 

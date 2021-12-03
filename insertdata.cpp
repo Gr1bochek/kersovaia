@@ -10,7 +10,7 @@ insertData::insertData(QWidget *parent) :
     ui->Kod_Tovary->setInputMask("99999999");
     ui->Price_Tovary->setInputMask("9999999999");
     ui->Name_Tovary->setInputMask("NNNNNNNNNNNNNNNN");
-    QString dataMask="[0-9]?[0-9]\\.([0-9] | 1[0-2])\\.2[0-9]{3}";
+    QString dataMask="[0-9]?[0-9]\\.[0-9]?[0-2]\\.2[0-9]{3}";
     QRegExp dataRegExp(dataMask);
     QRegExpValidator *dataValidator=new QRegExpValidator(dataRegExp,this);
     ui->Termin_Pridatnosti->setValidator(dataValidator);

@@ -8,15 +8,17 @@
 
 int main(int argc, char *argv[])
 {
-    bool AdminLogin=false;
+    QString AdminLogin="NotLogined";
 
     QApplication a(argc, argv);
     LoginWindow LogWin(AdminLogin);
     LogWin.exec();
 
 
-
-    Storage w(AdminLogin);
-    w.show();
-    return a.exec();
+    if(AdminLogin!="NotLogined")
+    {
+        Storage w(AdminLogin);
+        w.show();
+        return a.exec();
+    }
 }

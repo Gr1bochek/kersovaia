@@ -12,6 +12,7 @@
 #include <QHBoxLayout>
 #include "insertdata.h"
 #include "databasemanager.h"
+#include "people.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Storage; }
@@ -23,7 +24,7 @@ class Storage : public QMainWindow
 
 public:
     void paintEvent(QPaintEvent *);
-    Storage(bool,QWidget *parent = nullptr);
+    Storage(QString,QWidget *parent = nullptr);
     ~Storage();
 
 private slots:
@@ -36,16 +37,18 @@ private slots:
     void on_Button_Spisaty_clicked();
 
 
+    void on_ChangeTable_clicked();
+
 private:
 
-bool UserRole;
+QString UserRole;
     Ui::Storage *ui;
     QSqlTableModel *model;
     int row=-1;
     DataBaseManager db;
 
 private:
-    void hider(bool);
+    void hider(QString);
 
 };
 #endif // STORAGE_H

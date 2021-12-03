@@ -16,13 +16,13 @@ class LoginAdmin : public QDialog
 public:
 
     void paintEvent(QPaintEvent *);
-    explicit LoginAdmin(bool&,QWidget *parent = nullptr);
+    explicit LoginAdmin(QString&,QWidget *parent = nullptr);
     ~LoginAdmin();
 private slots:
     void on_ButtonAdminAutorization_clicked();
 
 private:
-    bool*ADMLog;
+   QString*ADMLog;
     Ui::LoginAdmin *ui;
 };
 

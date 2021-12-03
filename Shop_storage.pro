@@ -15,6 +15,7 @@ SOURCES += \
     loginadmin.cpp \
     loginwindow.cpp \
     main.cpp \
+    people.cpp \
     storage.cpp
 
 HEADERS += \
@@ -23,13 +24,17 @@ HEADERS += \
     insertdata.h \
     loginadmin.h \
     loginwindow.h \
+    people.h \
     storage.h
 
 FORMS += \
     insertdata.ui \
     loginadmin.ui \
     loginwindow.ui \
+    people.ui \
     storage.ui
+
+win32:RC_FILE=iconaizer.rc
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

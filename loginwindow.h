@@ -14,7 +14,7 @@ class LoginWindow : public QDialog
 
 public:
     void paintEvent(QPaintEvent *);
-    explicit LoginWindow(bool&,QWidget *parent = nullptr);
+    explicit LoginWindow(QString&,QWidget *parent = nullptr);
     ~LoginWindow();
 
 private slots:
@@ -23,7 +23,7 @@ private slots:
     void on_ButtonUser_clicked();
 
 private:
-    bool* loginADM;
+    QString *loginADM;
     Ui::LoginWindow *ui;
 };
 

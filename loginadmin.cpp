@@ -3,7 +3,7 @@
 
 #include <QMessageBox>
 
-LoginAdmin::LoginAdmin(bool& vavle,QWidget *parent) :
+LoginAdmin::LoginAdmin(QString& vavle,QWidget *parent) :
     QDialog(parent),
     ADMLog(&vavle),
     ui(new Ui::LoginAdmin)
@@ -26,7 +26,7 @@ void LoginAdmin::on_ButtonAdminAutorization_clicked()
 
     if(Login_Admina == "123" && Pass_Admina == "123")
     {
-        *ADMLog=true;
+        *ADMLog="admin";
         hide();
 
     }

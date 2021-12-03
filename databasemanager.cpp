@@ -1,5 +1,17 @@
 #include "databasemanager.h"
 
+void DataBaseManager::InsertIntoTable_people(const QVariantList & infa)
+{
+    //цей метод заносить дані в базу
+    QSqlQuery query;
+    query.prepare("INSERT INTO informationOfUsers (name, count_of_products ,productName, insert_date ) VALUES(:name, :count_of_products ,:productName, :insert_date )");
+    query.bindValue(":name",infa[0].toString());
+    query.bindValue(":count_of_products",infa[1].toInt());
+    query.bindValue(":productName",infa[2].toString());
+    query.bindValue(":insert_date",infa[3].toString());
+    query.exec();
+}
+
 void DataBaseManager::spysat(int spes,int coper=0)
 {
     QSqlQuery query;
@@ -61,11 +73,16 @@ void DataBaseManager::ConnectToDB()
 
 }
 
-void DataBaseManager::CreateTable()
+void DataBaseManager::CreateTable(const QString& str)
 {
     QSqlQuery query;
 
-    query.exec("CREATE TABLE Store_storage(id INTEGER PRIMARY KEY AUTOINCREMENT,Code_Tovary INTEGER UNIQUE, Name TEXT, Price INTEGER, Kilkist INTEGER, Srok_pridatnosti TEXT, Postavchik TEXT);");
+    if(str!="Store_storage")
+    {
+         query.exec("CREATE TABLE informationOfUsers (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL , count_of_products INTEGER NOT NULL,productName TEXT NOT NULL,insert_date TEXT NOT NULL)" );
+    return;
+    }
+    query.exec("CREATE TABLE Store_storage (id INTEGER PRIMARY KEY AUTOINCREMENT,Code_Tovary INTEGER UNIQUE, Name TEXT, Price INTEGER, Kilkist INTEGER, Srok_pridatnosti TEXT, Postavchik TEXT);");
 
 }
 
